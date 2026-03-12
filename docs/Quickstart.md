@@ -213,6 +213,7 @@ print(MusicClientBuilder.REGISTERED_MODULES)
 From musicdl v2.9.0 onward, support for downloading user playlists from each platform will be added gradually. The platforms currently supported are as follows:
 
 - [AppleMusicClient | 苹果音乐](https://music.apple.com/)
+- [DeezerMusicClient | Deezer (法国音乐平台)](https://www.deezer.com/us/)
 - [FiveSingMusicClient | 5SING音乐](https://5sing.kugou.com/index.html)
 - [JamendoMusicClient | 简音乐 (欧美流行音乐)](https://www.jamendo.com/)
 - [JooxMusicClient | QQ音乐海外版](https://www.joox.com/hk)
@@ -235,6 +236,8 @@ Specifically, you only need to run the following command in the terminal, musicd
 musicdl -p "https://music.apple.com/cn/playlist/%E5%8D%81%E5%A4%A7%E4%B8%93%E8%BE%91/pl.u-mJy81mECzBL49zM" -m AppleMusicClient -i "{'AppleMusicClient': {'default_parse_cookies': your_vip_cookies_with_str_or_dict_format}}"
 # >>> use wrapper
 musicdl -p "https://music.apple.com/cn/playlist/%E5%8D%81%E5%A4%A7%E4%B8%93%E8%BE%91/pl.u-mJy81mECzBL49zM" -m AppleMusicClient -i "{'AppleMusicClient': {'use_wrapper': True, 'wrapper_account_url': 'http://127.0.0.1:30020/', 'wrapper_decrypt_ip': '127.0.0.1:10020'}}"
+# Parse and Download Deezer Music Playlist
+musicdl -p "https://www.deezer.com/us/playlist/4697225044" -m DeezerMusicClient -i "{'DeezerMusicClient': {'default_parse_cookies': your_vip_cookies_with_str_or_dict_format}}"
 # Parse and Download 5SING Music Playlist
 musicdl -p "https://5sing.kugou.com/yeluoluo/dj/631b3fa72418b11003089b8d.html" -m FiveSingMusicClient
 # Parse and Download Jamendo Music Playlist

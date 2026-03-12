@@ -113,6 +113,7 @@ Thread settings and request overrides are automatically taken from `MusicClient.
 - `musicdl.modules.sources.AppleMusicClient`
 - `musicdl.modules.sources.BilibiliMusicClient`
 - `musicdl.modules.sources.BuguyyMusicClient`
+- `musicdl.modules.sources.DeezerMusicClient`
 - `musicdl.modules.sources.FangpiMusicClient`
 - `musicdl.modules.sources.FiveSingMusicClient`
 - `musicdl.modules.sources.FiveSongMusicClient`
