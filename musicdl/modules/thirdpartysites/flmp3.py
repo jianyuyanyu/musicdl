@@ -7,8 +7,8 @@ WeChat Official Account (微信公众号):
     Charles的皮卡丘
 '''
 from bs4 import BeautifulSoup
-from .base import BaseMusicClient
 from rich.progress import Progress
+from ..sources import BaseMusicClient
 from urllib.parse import urljoin, urlparse
 from ..utils import legalizestring, usesearchheaderscookies, seconds2hms, searchdictbykey, SongInfo, QuarkParser, AudioLinkTester
 

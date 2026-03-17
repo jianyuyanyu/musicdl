@@ -9,9 +9,9 @@ WeChat Official Account (微信公众号):
 import re
 import html
 import copy
-from .base import BaseMusicClient
 from urllib.parse import urlencode
 from rich.progress import Progress
+from ..sources import BaseMusicClient
 from ..utils import legalizestring, usesearchheaderscookies, resp2json, safeextractfromdict, searchdictbykey, seconds2hms, cleanlrc, SongInfo, QuarkParser, AudioLinkTester
 
 

@@ -8,8 +8,8 @@ WeChat Official Account (微信公众号):
 '''
 import re
 from bs4 import BeautifulSoup
-from .base import BaseMusicClient
 from rich.progress import Progress
+from ..sources import BaseMusicClient
 from urllib.parse import urljoin, urlparse
 from ..utils import legalizestring, usesearchheaderscookies, searchdictbykey, seconds2hms, extractdurationsecondsfromlrc, cleanlrc, SongInfo, QuarkParser, AudioLinkTester
 

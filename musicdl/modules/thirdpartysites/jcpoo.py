@@ -11,8 +11,8 @@ import ast
 import copy
 import json_repair
 from bs4 import BeautifulSoup
-from .base import BaseMusicClient
 from rich.progress import Progress
+from ..sources import BaseMusicClient
 from urllib.parse import urlencode, urljoin, urlparse, parse_qs
 from ..utils import legalizestring, usesearchheaderscookies, seconds2hms, searchdictbykey, extractdurationsecondsfromlrc, cleanlrc, SongInfo, QuarkParser, AudioLinkTester
 

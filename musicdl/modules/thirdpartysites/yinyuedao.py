@@ -10,8 +10,8 @@ import re
 import base64
 from html import unescape
 from bs4 import BeautifulSoup
-from .base import BaseMusicClient
 from rich.progress import Progress
+from ..sources import BaseMusicClient
 from urllib.parse import urljoin, urlparse
 from ..utils import legalizestring, usesearchheaderscookies, safeextractfromdict, seconds2hms, searchdictbykey, resp2json, cleanlrc, SongInfo, QuarkParser, AudioLinkTester
 
