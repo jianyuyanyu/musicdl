@@ -671,6 +671,10 @@ music_client = musicdl.MusicClient(music_sources=['SoundCloudMusicClient'], init
 music_client.startcmdui()
 ```
 
+#### Spotify Music Download
+
+
+
 #### TIDAL High-Quality Music Download
 
 Prior to using `TIDALMusicClient`, verify that the following command-line tools are correctly installed and available in your environment,
