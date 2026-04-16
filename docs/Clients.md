@@ -1,4 +1,4 @@
-# Music Client
+# Music Clients
 
 ## Platforms in Greater China
 
