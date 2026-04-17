@@ -886,7 +886,63 @@ You can start using LRTSMusicClient right after installing musicdl via pip, with
 
 (1) Command-Line Usage
 
+- Search and Download Books from This Platform
+
+  `musicdl -m LRTSMusicClient -i "{'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['book']}}"`
+
+- Search and Download Albums from This Platform
+
+  `musicdl -m LRTSMusicClient -i "{'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['album']}}"`
+
+- Search for and Download Books and Albums from This Platform
+
+  `musicdl -m LRTSMusicClient -i "{'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['book', 'album']}}"`
+
+- Search & Download Books and Albums Using Your Own Premium Account Cookies
+
+  `musicdl -m LRTSMusicClient -i "{'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['book', 'album'], 'default_search_cookies': 'YOUR_COOKIES'}}"`
+
 (2) Invoke It in Python
+
+- Search and Download Books from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['book']}}
+  music_client = musicdl.MusicClient(music_sources=['LRTSMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search and Download Albums from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['album']}}
+  music_client = musicdl.MusicClient(music_sources=['LRTSMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search for and Download Books and Albums from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['book', 'album']}}
+  music_client = musicdl.MusicClient(music_sources=['LRTSMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search & Download Books and Albums Using Your Own Premium Account Cookies
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['book', 'album'], 'default_search_cookies': 'YOUR_COOKIES'}}
+  music_client = musicdl.MusicClient(music_sources=['LRTSMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
 
 #### QingtingMusicClient
 
