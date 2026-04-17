@@ -881,14 +881,59 @@ There’s no need to set up extra CLI tools such as ffmpeg or N_m3u8DL-RE. Just 
 
 [JBSou](https://www.jbsou.cn/) is a free online music search and download site that lets users look up tracks across multiple Chinese music platforms, including NetEase, QQ Music, Kugou, Kuwo, Migu, and Qianqian. 
 
-JBSouMusicClient is designed for downloading music from the platform above.
+JBSouMusicClient is designed for downloading music from the platform above, with a focus on searching and downloading 320 kbps MP3 audio files.
+
+The following table summarizes all music platforms currently supported by JBSouMusicClient via JBSou,
+
+| Source (EN)             | Source (CN)                        | Official Websites                     | `allowed_music_sources`      |
+| -----------------       | -------------------                | -----------------------------------   | -------------------          |
+| Tencent (QQ Music)      | QQ音乐                             | https://y.qq.com                      | `qq`                         |
+| NetEase Cloud Music     | 网易云音乐                         | https://music.163.com                 | `netease`                    |
+| Kuwo                    | 酷我音乐                           | https://www.kuwo.cn                   | `kuwo`                       |
+| Kugou                   | 酷狗音乐                           | https://www.kugou.com/                | `kugou`                      |
 
 Using JBSouMusicClient is simple: just pip install musicdl. No additional tools like ffmpeg or N_m3u8DL-RE are required.
 
 (1) Command-Line Usage
 
+- Search for and Download Playable Music Files from Websites
+
+  `musicdl -m JBSouMusicClient`
+
+- Restrict Music Sources and Number of Results
+
+  `musicdl -m JBSouMusicClient -i "{'JBSouMusicClient': {'search_size_per_source': 5, 'allowed_music_sources': ['qq', 'netease', 'kugou']}}"`
+
 (2) Invoke It in Python
 
+- Search for and Download Playable Music Files from Websites
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['JBSouMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Restrict Music Sources and Number of Results
+
+  ```python
+  from musicdl import musicdl
+
+  # allowed_music_sources can be set to any subset (i.e., any combination) of ['qq', 'netease', 'kuwo', 'kugou']
+  init_music_clients_cfg = {'JBSouMusicClient': {'search_size_per_source': 5, 'allowed_music_sources': ['qq', 'netease', 'kugou']}}
+  music_client = musicdl.MusicClient(music_sources=['JBSouMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+(3) Screenshots of Running Results
+
+<div align="center">
+  <div>
+    <img src="https://github.com/CharlesPikachu/musicdl/raw/master/docs/screenshot/jbsouscreenshot.png" width="600"/>
+  </div>
+</div>
+<br />
 
 #### MP3JuiceMusicClient
 
@@ -896,11 +941,31 @@ Using JBSouMusicClient is simple: just pip install musicdl. No additional tools 
 
 For music downloads from the platform above, MP3JuiceMusicClient is the go-to option.
 
+The following table details the music platforms currently accessible through MP3JuiceMusicClient via MP3Juice,
+
+| Source (EN)             | Source (CN)                        | Official Websites                     |
+| -----------------       | -------------------                | -----------------------------------   |
+| SoundCloud              | 声云                               | https://soundcloud.com/discover       |
+| YouTube Music           | 油管音乐                           | https://music.youtube.com             |
+
 MP3JuiceMusicClient doesn’t rely on external CLI tools like ffmpeg or N_m3u8DL-RE. Once you install musicdl, it’s ready to use.
 
 (1) Command-Line Usage
 
+- Search for and Download Playable Music Files from Websites
+
+  `musicdl -m MP3JuiceMusicClient`
+
 (2) Invoke It in Python
+
+- Search for and Download Playable Music Files from Websites
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['MP3JuiceMusicClient'])
+  music_client.startcmdui()
+  ```
 
 #### MyFreeMP3MusicClient
 
@@ -908,11 +973,35 @@ MP3JuiceMusicClient doesn’t rely on external CLI tools like ffmpeg or N_m3u8DL
 
 If you want to download music from the platform above, MyFreeMP3MusicClient is the client to use.
 
+The table below outlines the music platforms currently supported by MyFreeMP3MusicClient through MyFreeMP3,
+
+| Source (EN)             | Source (CN)                        | Official Websites                     |
+| -----------------       | -------------------                | -----------------------------------   |
+| Quark Cloud Disk        | 夸克网盘                           | https://pan.quark.cn/list#/list/all   |
+| NetEase Cloud Music     | 网易云音乐                         | https://music.163.com                 |
+
 No extra setup is needed for MyFreeMP3MusicClient — just install musicdl with pip and it will work out of the box.
 
 (1) Command-Line Usage
 
+- Search for and Download Playable Music Files from Websites
+
+  `musicdl -m MyFreeMP3MusicClient -i "{'MyFreeMP3MusicClient': {'quark_parser_config': {'cookies': 'Your Quark Drive Login Cookies'}}}"`
+
 (2) Invoke It in Python
+
+- Search for and Download Playable Music Files from Websites
+
+  ```python
+  from musicdl import musicdl
+  
+  your_quark_drive_login_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'MyFreeMP3MusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
+  }
+  music_client = musicdl.MusicClient(music_sources=['MyFreeMP3MusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
 
 #### TuneHubMusicClient
 
@@ -920,12 +1009,56 @@ No extra setup is needed for MyFreeMP3MusicClient — just install musicdl with 
 
 Music from the platform above can be downloaded using TuneHubMusicClient.
 
+The following table shows all music platforms that TuneHubMusicClient currently supports via TuneHub,
+
+| Source (EN)             | Source (CN)                        | Official Websites                     | `allowed_music_sources`      |
+| -----------------       | -------------------                | -----------------------------------   | -------------------          |
+| Tencent (QQ Music)      | QQ音乐                             | https://y.qq.com                      | `qq`                         |
+| NetEase Cloud Music     | 网易云音乐                         | https://music.163.com                 | `netease`                    |
+| Kuwo                    | 酷我音乐                           | https://www.kuwo.cn                   | `kuwo`                       |
+
 To use TuneHubMusicClient, all you need is pip install musicdl. You don’t have to install ffmpeg, N_m3u8DL-RE, or any other CLI tools.
 
 (1) Command-Line Usage
 
+- Search for and Download Playable Music Files from Websites
+
+  `musicdl -m TuneHubMusicClient`
+
+- Restrict Music Sources and Number of Results
+
+  `musicdl -m TuneHubMusicClient -i "{'TuneHubMusicClient': {'search_size_per_source': 5, 'allowed_music_sources': ['qq', 'netease']}}"`
+
 (2) Invoke It in Python
 
+- Search for and Download Playable Music Files from Websites
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['TuneHubMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Restrict Music Sources and Number of Results
+
+  ```python
+  from musicdl import musicdl
+
+  # allowed_music_sources can be set to any subset (i.e., any combination) of ['qq', 'netease', 'kuwo']
+  init_music_clients_cfg = {'TuneHubMusicClient': {'search_size_per_source': 5, 'allowed_music_sources': ['qq', 'netease']}}
+  music_client = musicdl.MusicClient(music_sources=['TuneHubMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+(3) Screenshots of Running Results
+
+<div align="center">
+  <div>
+    <img src="https://github.com/CharlesPikachu/musicdl/raw/master/docs/screenshot/tunehubscreenshot.png" width="600"/>
+  </div>
+</div>
+<br />
 
 ## Unofficial Download Sites / Scrapers
 
