@@ -374,20 +374,9 @@ MiguMusicClient can be used directly without installing any extra CLI utilities 
   music_client.download(song_infos=song_infos)
   ```
 
+#### NeteaseMusicClient (Built-in Premium Account)
 
-
-
-
-
-
-
-
-
-
-
-
-
-#### NeteaseMusicClient
+[NetEase Cloud Music](https://music.163.com/) is one of China’s most popular music streaming platforms, known for its vast song library, personalized recommendations, and active user community.
 
 The above music can be downloaded through NeteaseMusicClient.
 
@@ -397,23 +386,82 @@ There is no need to install extra tools such as ffmpeg or N_m3u8DL-RE to use Net
 
 - Basic usage for song search and download, without login cookies:
 
+  `musicdl -m NeteaseMusicClient`
+
 - Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m NeteaseMusicClient -i "{'NeteaseMusicClient': {'default_search_cookies': 'YOUR_COOKIES'}}"`
 
 - Basic usage for playlist parsing and downloading, without login cookies:
 
+  `musicdl -p "https://music.163.com/#/my/m/music/playlist?id=7583298906" -m NeteaseMusicClient`
+
 - Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://music.163.com/#/my/m/music/playlist?id=7583298906" -m NeteaseMusicClient -i "{'NeteaseMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
 
 (2) Invoke It in Python
 
 - Basic usage for song search and download, without login cookies:
 
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['NeteaseMusicClient'])
+  music_client.startcmdui()
+  ```
+
 - Simple usage for searching and downloading songs, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'NeteaseMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['NeteaseMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
 
 - Basic usage for playlist parsing and downloading, without login cookies:
 
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['NeteaseMusicClient'])
+  song_infos = music_client.parseplaylist("https://music.163.com/#/my/m/music/playlist?id=7583298906")
+  music_client.download(song_infos=song_infos)
+  ```
+
 - Simple usage for playlist parsing and downloading, with login cookies:
 
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'NeteaseMusicClient': {
+        'default_parse_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['NeteaseMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://music.163.com/#/my/m/music/playlist?id=7583298906")
+  music_client.download(song_infos=song_infos)
+  ```
+
+
+
+
+
+
+
+
 #### QianqianMusicClient
+
+[Qianqian Music](https://music.91q.com/) is an online music platform offering a large library of songs, popular playlists, artist content, and curated videos.
 
 We can rely on QianqianMusicClient to download the music above.
 
@@ -423,6 +471,8 @@ QianqianMusicClient comes ready to use without relying on additional CLI tools l
 
 - Basic usage for song search and download, without login cookies:
 
+  `musicdl -m QianqianMusicClient`
+
 - Simple usage for searching and downloading songs, with login cookies:
 
 - Basic usage for playlist parsing and downloading, without login cookies:
@@ -439,7 +489,12 @@ QianqianMusicClient comes ready to use without relying on additional CLI tools l
 
 - Simple usage for playlist parsing and downloading, with login cookies:
 
-#### QQMusicClient
+
+
+
+#### QQMusicClient (Built-in Premium Account)
+
+[QQ Music](https://y.qq.com/) is a high-quality music streaming platform offering a vast licensed song library, new releases, charts, playlists, MVs, and digital albums. 
 
 QQMusicClient can be used to download the music listed above.
 
@@ -449,6 +504,8 @@ To use QQMusicClient, you do not need any extra command-line tools such as ffmpe
 
 - Basic usage for song search and download, without login cookies:
 
+  `musicdl -m QQMusicClient`
+
 - Simple usage for searching and downloading songs, with login cookies:
 
 - Basic usage for playlist parsing and downloading, without login cookies:
@@ -464,6 +521,11 @@ To use QQMusicClient, you do not need any extra command-line tools such as ffmpe
 - Basic usage for playlist parsing and downloading, without login cookies:
 
 - Simple usage for playlist parsing and downloading, with login cookies:
+
+
+
+
+
 
 #### SodaMusicClient
 
@@ -474,6 +536,8 @@ SodaMusicClient offers an out-of-the-box experience: no extra CLI tools like ffm
 (1) Command-Line Usage
 
 - Basic usage for song search and download, without login cookies:
+
+  `musicdl -m SodaMusicClient`
 
 - Simple usage for searching and downloading songs, with login cookies:
 
