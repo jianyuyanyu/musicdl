@@ -129,7 +129,7 @@ Using FiveSingMusicClient does not require installing any extra command-line too
   music_client.download(song_infos=song_infos)
   ```
 
-#### KugouMusicClient
+#### KugouMusicClient (Built-in Premium Account)
 
 [KuGou Music](http://www.kugou.com/) is a major Chinese online music platform that offers songs, charts, playlists, music videos, audiobooks, and live content.
 
@@ -218,17 +218,7 @@ KugouMusicClient works out of the box with no need for extra CLI dependencies su
   music_client.download(song_infos=song_infos)
   ```
 
-
-
-
-
-
-
-
-
-
-
-#### KuwoMusicClient
+#### KuwoMusicClient (Built-in Premium Account)
 
 [Kuwo Music](http://www.kuwo.cn/) is a major Chinese online music platform that offers high-quality music streaming, charts, playlists, radio, and downloadable songs.
 
@@ -240,23 +230,71 @@ No additional command-line tools, including ffmpeg or N_m3u8DL-RE, are needed to
 
 - Basic usage for song search and download, without login cookies:
 
+  `musicdl -m KuwoMusicClient`
+
 - Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m KuwoMusicClient -i "{'KuwoMusicClient': {'default_search_cookies': 'YOUR_COOKIES'}}"`
 
 - Basic usage for playlist parsing and downloading, without login cookies:
 
+  `musicdl -p "https://www.kuwo.cn/playlist_detail/2648040171" -m KuwoMusicClient`
+
 - Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://www.kuwo.cn/playlist_detail/2648040171" -m KuwoMusicClient -i "{'KuwoMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
 
 (2) Invoke It in Python
 
 - Basic usage for song search and download, without login cookies:
 
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['KuwoMusicClient'])
+  music_client.startcmdui()
+  ```
+
 - Simple usage for searching and downloading songs, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'KuwoMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['KuwoMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
 
 - Basic usage for playlist parsing and downloading, without login cookies:
 
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['KuwoMusicClient'])
+  song_infos = music_client.parseplaylist("https://www.kuwo.cn/playlist_detail/2648040171")
+  music_client.download(song_infos=song_infos)
+  ```
+
 - Simple usage for playlist parsing and downloading, with login cookies:
 
-
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'KuwoMusicClient': {
+        'default_parse_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['KuwoMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://www.kuwo.cn/playlist_detail/2648040171")
+  music_client.download(song_infos=song_infos)
+  ```
 
 
 
