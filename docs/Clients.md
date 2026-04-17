@@ -51,19 +51,83 @@ BilibiliMusicClient requires no additional CLI tools such as ffmpeg or N_m3u8DL-
 
 #### FiveSingMusicClient
 
+[5SING Music](https://5sing.kugou.com/index.html) is a KuGou-affiliated online music platform where users can upload and discover original songs, covers, instrumentals, playlists, videos, and independent musicians.
+
 We can download the above music using FiveSingMusicClient.
 
 Using FiveSingMusicClient does not require installing any extra command-line tools like ffmpeg or N_m3u8DL-RE. Simply run pip install musicdl and you can start using it right away.
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
+
+  `musicdl -m FiveSingMusicClient`
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m FiveSingMusicClient -i "{'FiveSingMusicClient': {'default_search_cookies': 'YOUR_COOKIES', 'default_download_cookies': 'YOUR_COOKIES'}}"`
+
 - Basic usage for playlist parsing and downloading, without login cookies:
+
+  `musicdl -p "https://5sing.kugou.com/yeluoluo/dj/631b3fa72418b11003089b8d.html" -m FiveSingMusicClient`
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+  
+  `musicdl -p "https://5sing.kugou.com/yeluoluo/dj/631b3fa72418b11003089b8d.html" -m FiveSingMusicClient -i "{'FiveSingMusicClient': {'default_search_cookies': 'YOUR_COOKIES', 'default_download_cookies': 'YOUR_COOKIES'}}"`
+
+(2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['FiveSingMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'FiveSingMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+        'default_download_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['FiveSingMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['FiveSingMusicClient'])
+  song_infos = music_client.parseplaylist("https://5sing.kugou.com/yeluoluo/dj/631b3fa72418b11003089b8d.html")
+  music_client.download(song_infos=song_infos)
+  ```
 
 - Simple usage for playlist parsing and downloading, with login cookies:
 
-
-
-(2) Invoke It in Python
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'FiveSingMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+        'default_download_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['FiveSingMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://5sing.kugou.com/yeluoluo/dj/631b3fa72418b11003089b8d.html")
+  music_client.download(song_infos=song_infos)
+  ```
 
 #### KugouMusicClient
 
