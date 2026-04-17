@@ -768,45 +768,85 @@ Since StreetVoice audio files are delivered in HLS format, downloading music fro
 
 #### AppleMusicClient
 
+[Apple Music](https://music.apple.com/) is Apple’s music streaming platform, offering songs, albums, playlists, radio, and other audio content through its web player and apps.
+
 #### DeezerMusicClient
 
+[Deezer](https://www.deezer.com/us/) is a music streaming platform that lets users listen to over 120 million tracks, podcasts, playlists, and other audio content online.
+
 #### JamendoMusicClient
+
+[Jamendo](https://www.jamendo.com/) is a music platform that offers free music streaming and downloads, with a focus on independent artists and royalty-free music.
 
 JamendoMusicClient requires only a pip installation of musicdl, with no additional setup for tools like ffmpeg or N_m3u8DL-RE.
 
 #### JooxMusicClient
 
+[JOOX](https://www.joox.com/intl) is a music streaming platform by Tencent that offers over 40 million songs, playlists, karaoke, live broadcasting, and social audio features.
+
 With JooxMusicClient, there is no extra dependency on CLI tools such as ffmpeg or N_m3u8DL-RE. Just install musicdl and you are ready to go.
 
-#### QobuzMusicClient
+#### QobuzMusicClient (Built-in Premium Account)
+
+[Qobuz](https://play.qobuz.com/discover) is a high-resolution music streaming and download platform that offers more than 100 million tracks in CD-quality and Hi-Res audio for music listening and discovery.
 
 #### SoundCloudMusicClient
 
-#### SpotifyMusicClient
+[SoundCloud](https://soundcloud.com/discover) is a music streaming and sharing platform where users can discover tracks, playlists, and podcasts, while artists can upload and share their work with listeners worldwide.
 
-#### TIDALMusicClient
+#### SpotifyMusicClient (Built-in Premium Account)
 
-#### YouTubeMusicClient
+[Spotify](https://open.spotify.com/) is a global audio streaming platform where users can listen to music, podcasts, and playlists through its web player and apps.
 
+#### TIDALMusicClient (Built-in Premium Account)
+
+[TIDAL](https://tidal.com/) is a music streaming platform that offers millions of tracks, albums, playlists, and videos, with a focus on high-fidelity audio quality.
+
+#### YouTubeMusicClient (Built-in Premium Account)
+
+[YouTube Music](https://music.youtube.com/) is Google’s music streaming platform, offering access to over 100 million songs, albums, playlists, remixes, and music videos for listening and discovery.
 
 ## Audio / Radio
 
 #### LizhiMusicClient
 
+[Lizhi FM](https://www.lizhi.fm/) is a Chinese audio platform and podcast community whose slogan is "Everyone can be a podcaster."
+
 LizhiMusicClient requires nothing beyond pip install musicdl — no extra CLI tools, no complicated setup.
+
+(1) Command-Line Usage
+
+(2) Invoke It in Python
 
 #### LRTSMusicClient
 
+[LRTS.me](https://www.lrts.me/) is the official website of Lanrentingshu, a leading Chinese audio reading platform that offers audiobooks, podcasts, radio-style programs, and other spoken-word content.
+
 You can start using LRTSMusicClient right after installing musicdl via pip, without having to install tools like ffmpeg or N_m3u8DL-RE.
+
+(1) Command-Line Usage
+
+(2) Invoke It in Python
 
 #### QingtingMusicClient
 
+[Qingting FM](https://www.qtfm.cn/) is a major Chinese audio streaming platform that offers podcasts, radio broadcasts, audiobooks, news, music, education, and other spoken-word content.
+
 QingtingMusicClient keeps things easy: no additional CLI tools to install, just pip install musicdl and you’re all set.
+
+(1) Command-Line Usage
+
+(2) Invoke It in Python
 
 #### XimalayaMusicClient
 
+[Ximalaya](https://www.ximalaya.com/) is a leading Chinese online audio platform where users can listen to podcasts, audiobooks, radio-style programs, and other spoken-word content.
+
 XimalayaMusicClient is ready to use after a simple pip install. No extra command-line tools like ffmpeg or N_m3u8DL-RE are needed.
 
+(1) Command-Line Usage
+
+(2) Invoke It in Python
 
 
 
