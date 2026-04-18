@@ -813,6 +813,22 @@ With JooxMusicClient, there is no extra dependency on CLI tools such as ffmpeg o
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
+
+  `musicdl -m JooxMusicClient`
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m JooxMusicClient -i "{'JooxMusicClient': {'default_search_cookies': 'YOUR_COOKIES'}}"`
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  `musicdl -p "https://www.joox.com/hk/playlist/5HTvfy7AAW9QJHPqM+T0+w==" -m JooxMusicClient`
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://www.joox.com/hk/playlist/5HTvfy7AAW9QJHPqM+T0+w==" -m JooxMusicClient -i "{'JooxMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
+
 (2) Invoke It in Python
 
 
@@ -825,6 +841,22 @@ Music from the platform referenced above can be fetched through QobuzMusicClient
 With QobuzMusicClient, you do not need extra CLI tools like ffmpeg or N_m3u8DL-RE. A simple musicdl installation is sufficient.
 
 (1) Command-Line Usage
+
+- Basic usage for song search and download, without login cookies:
+
+  `musicdl -m QobuzMusicClient`
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m QobuzMusicClient -i "{'QobuzMusicClient': {'default_search_cookies': 'YOUR_COOKIES'}}"`
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  `musicdl -p "https://www.qobuz.com/us-en/playlists/next-up-at-sam-first/21512061" -m QobuzMusicClient`
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://www.qobuz.com/us-en/playlists/next-up-at-sam-first/21512061" -m QobuzMusicClient -i "{'QobuzMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
 
 (2) Invoke It in Python
 
@@ -843,14 +875,27 @@ To use SoundCloudMusicClient, you will need a few extra CLI tools, including [FF
 
   `musicdl -m SoundCloudMusicClient`
 
+- Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m SoundCloudMusicClient -i "{'SoundCloudMusicClient': {'default_search_cookies': 'YOUR_COOKIES'}}"`
+
 - Basic usage for playlist parsing and downloading, without login cookies:
 
   `musicdl -p "https://soundcloud.com/raudymithut/sets/sets-from-dj-raudy-mit-hut" -m SoundCloudMusicClient`
 
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://soundcloud.com/raudymithut/sets/sets-from-dj-raudy-mit-hut" -m SoundCloudMusicClient -i "{'SoundCloudMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
+
 (2) Invoke It in Python
 
+- Basic usage for song search and download, without login cookies:
 
+- Simple usage for searching and downloading songs, with login cookies:
 
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 #### SpotifyMusicClient (Built-in Premium Account)
 
