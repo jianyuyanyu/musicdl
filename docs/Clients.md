@@ -849,6 +849,9 @@ With QobuzMusicClient, you do not need extra CLI tools like ffmpeg or N_m3u8DL-R
 - Simple usage for searching and downloading songs, with login cookies:
 
   `musicdl -m QobuzMusicClient -i "{'QobuzMusicClient': {'default_search_cookies': 'YOUR_COOKIES'}}"`
+  
+  The cookies should be provided either as a dictionary in the format `{"x-user-auth-token": "xxx", ...}` or as a cookie string such as `x-user-auth-token=xxx; ...`. 
+  The `x-user-auth-token` field is required, while any other fields are optional.
 
 - Basic usage for playlist parsing and downloading, without login cookies:
 
@@ -860,6 +863,55 @@ With QobuzMusicClient, you do not need extra CLI tools like ffmpeg or N_m3u8DL-R
 
 (2) Invoke It in Python
 
+- Basic usage for song search and download, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['QobuzMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'QobuzMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['QobuzMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['QobuzMusicClient'])
+  song_infos = music_client.parseplaylist("https://www.qobuz.com/us-en/playlists/next-up-at-sam-first/21512061")
+  music_client.download(song_infos=song_infos)
+  ```
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'QobuzMusicClient': {
+        'default_parse_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['QobuzMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://www.qobuz.com/us-en/playlists/next-up-at-sam-first/21512061")
+  music_client.download(song_infos=song_infos)
+  ```
 
 #### SoundCloudMusicClient
 
