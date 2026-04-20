@@ -808,7 +808,26 @@ To use AppleMusicClient, you will need extra CLI tools such as [FFmpeg](https://
 
 - Using the wrapper server to search for and download songs:
 
+  `musicdl -m AppleMusicClient -i "{'AppleMusicClient': {'search_size_per_source': 3, 'language': 'en-US', 'use_wrapper': True, 'wrapper_account_url': 'http://127.0.0.1:30020/', 'wrapper_decrypt_ip': '127.0.0.1:10020'}}"`
+  
+  Using the wrapper server enables musicdl to download higher-quality audio, such as `alac`, although the setup is a bit more complex.
+  
+  - To get started, follow the guide in the [WorldObservationLog/wrapper](https://github.com/WorldObservationLog/wrapper) repository and launch the wrapper server.
+  - If you are on Windows, be aware that decryption will very likely fail unless the wrapper server is run inside Ubuntu on WSL. In other words, you will need to install WSL, set up Ubuntu within it, and start the wrapper server from the Ubuntu environment.
+  - You should also ensure that the `wrapper_account_url` and `wrapper_decrypt_ip` settings are consistent with the corresponding arguments used by your wrapper server.
+  - Besides [FFmpeg](https://www.ffmpeg.org/) and [N_m3u8DL-RE](https://github.com/nilaoda/N_m3u8DL-RE/releases/tag/v0.5.1-beta), you will also need to install [Bento4](https://www.bento4.com/downloads/) and [amdecrypt](https://github.com/CharlesPikachu/musicdl/releases/tag/clitools).
 
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  `musicdl -p "https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05" -m AppleMusicClient`
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05" -m AppleMusicClient -i "{'AppleMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
+
+- Using the wrapper server to parse and download songs from a playlist:
+  
+  `musicdl -p "https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05" -m AppleMusicClient -i "{'AppleMusicClient': {'search_size_per_source': 3, 'language': 'en-US', 'use_wrapper': True, 'wrapper_account_url': 'http://127.0.0.1:30020/', 'wrapper_decrypt_ip': '127.0.0.1:10020'}}"`
 
 (2) Invoke It in Python
 
@@ -835,7 +854,51 @@ To use AppleMusicClient, you will need extra CLI tools such as [FFmpeg](https://
 
 - Using the wrapper server to search for and download songs:
 
+  ```python
+  from musicdl import musicdl
+  from musicdl.modules.sources.apple import SongCodec
 
+  init_music_clients_cfg = {'AppleMusicClient': {'search_size_per_source': 3, 'language': 'en-US', 'use_wrapper': True, 'wrapper_account_url': 'http://127.0.0.1:30020/', 'wrapper_decrypt_ip': '127.0.0.1:10020'}}
+  music_client = musicdl.MusicClient(music_sources=['AppleMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['AppleMusicClient'])
+  song_infos = music_client.parseplaylist("https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05")
+  music_client.download(song_infos=song_infos)
+  ```
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'AppleMusicClient': {
+        'default_parse_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['AppleMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05")
+  music_client.download(song_infos=song_infos)
+  ```
+
+- Using the wrapper server to parse and download songs from a playlist:
+
+  ```python
+  from musicdl import musicdl
+  
+  init_music_clients_cfg = {'AppleMusicClient': {'search_size_per_source': 3, 'language': 'en-US', 'use_wrapper': True, 'wrapper_account_url': 'http://127.0.0.1:30020/', 'wrapper_decrypt_ip': '127.0.0.1:10020'}}
+  music_client = musicdl.MusicClient(music_sources=['AppleMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05")
+  music_client.download(song_infos=song_infos)
+  ```
 
 #### DeezerMusicClient
 
