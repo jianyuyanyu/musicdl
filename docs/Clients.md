@@ -780,7 +780,7 @@ To use AppleMusicClient, you will need extra CLI tools such as [FFmpeg](https://
 
   `musicdl -m AppleMusicClient`
   
-  Please note that if you do not configure your Apple Music subscriber account cookies, AppleMusicClient will only be able to download 30–90 second preview clips rather than the full tracks.
+  Without configured Apple Music subscriber cookies, AppleMusicClient is limited to downloading 30–90-second preview clips instead of full tracks.
 
 - Simple usage for searching and downloading songs, with login cookies:
 
