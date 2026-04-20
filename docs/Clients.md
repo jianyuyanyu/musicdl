@@ -817,10 +817,6 @@ To use AppleMusicClient, you will need extra CLI tools such as [FFmpeg](https://
   - You should also ensure that the `wrapper_account_url` and `wrapper_decrypt_ip` settings are consistent with the corresponding arguments used by your wrapper server.
   - Besides [FFmpeg](https://www.ffmpeg.org/) and [N_m3u8DL-RE](https://github.com/nilaoda/N_m3u8DL-RE/releases/tag/v0.5.1-beta), you will also need to install [Bento4](https://www.bento4.com/downloads/) and [amdecrypt](https://github.com/CharlesPikachu/musicdl/releases/tag/clitools).
 
-- Basic usage for playlist parsing and downloading, without login cookies:
-
-  `musicdl -p "https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05" -m AppleMusicClient`
-
 - Simple usage for playlist parsing and downloading, with login cookies:
 
   `musicdl -p "https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05" -m AppleMusicClient -i "{'AppleMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
@@ -861,16 +857,6 @@ To use AppleMusicClient, you will need extra CLI tools such as [FFmpeg](https://
   init_music_clients_cfg = {'AppleMusicClient': {'search_size_per_source': 3, 'language': 'en-US', 'use_wrapper': True, 'wrapper_account_url': 'http://127.0.0.1:30020/', 'wrapper_decrypt_ip': '127.0.0.1:10020'}}
   music_client = musicdl.MusicClient(music_sources=['AppleMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
-  ```
-
-- Basic usage for playlist parsing and downloading, without login cookies:
-
-  ```python
-  from musicdl import musicdl
-
-  music_client = musicdl.MusicClient(music_sources=['AppleMusicClient'])
-  song_infos = music_client.parseplaylist("https://music.apple.com/cn/playlist/%E6%9C%80%E6%96%B0%E7%83%AD%E6%9B%B2/pl.24cc3e1bd436415e93d801bccbebdf05")
-  music_client.download(song_infos=song_infos)
   ```
 
 - Simple usage for playlist parsing and downloading, with login cookies:
