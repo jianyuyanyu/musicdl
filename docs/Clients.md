@@ -1182,7 +1182,7 @@ With JooxMusicClient, there is no extra dependency on CLI tools such as ffmpeg o
 
 [JioSaavn](https://www.jiosaavn.com/) is an Indian music streaming platform that offers songs, playlists, podcasts, and regional music across multiple Indian languages.
 
-JioSaavnMusicClient provides access to music content available on the previously mentioned platform.
+JioSaavnMusicClient allows access to music from the previously discussed platform.
 
 JioSaavnMusicClient works out of the box without requiring external command-line tools such as FFmpeg or N_m3u8DL-RE; installing musicdl is sufficient to start using it.
 
