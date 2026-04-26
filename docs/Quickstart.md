@@ -409,7 +409,7 @@ From musicdl v2.9.0 onward, support for playlist parsing and downloading is bein
 AppleMusicClient,      DeezerMusicClient,       FiveSingMusicClient,    JamendoMusicClient,      JooxMusicClient,
 KuwoMusicClient,       KugouMusicClient,        MiguMusicClient,        NeteaseMusicClient,      QQMusicClient,
 QianqianMusicClient,   QobuzMusicClient,        SoundCloudMusicClient,  StreetVoiceMusicClient,  SodaMusicClient,
-SpotifyMusicClient,    TIDALMusicClient,        FMAMusicClient
+SpotifyMusicClient,    TIDALMusicClient,        FMAMusicClient,         JioSaavnMusicClient,
 ```
 
 You can download a supported playlist directly from the terminal:
@@ -430,6 +430,8 @@ musicdl -p "https://freemusicarchive.org/member/Creative_Commons/cc-20th-anniver
 musicdl -p "https://www.jamendo.com/playlist/500544876/best-of-february-2020" -m JamendoMusicClient
 # Parse and Download Joox Music Playlist
 musicdl -p "https://www.joox.com/hk/playlist/MqgK_LYD3Sb3I9Iziq+8NA==" -m JooxMusicClient
+# Parse and Download JioSaavn Music Playlist
+musicdl -p "https://www.jiosaavn.com/featured/world-music-day-telugu/3sLj61YBHdI_" -m JioSaavnMusicClient
 # Parse and Download Kuwo Music Playlist
 musicdl -p "https://www.kuwo.cn/playlist_detail/2358858706" -m KuwoMusicClient
 # Parse and Download Kugou Music Playlist

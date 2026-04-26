@@ -1178,6 +1178,84 @@ With JooxMusicClient, there is no extra dependency on CLI tools such as ffmpeg o
   music_client.download(song_infos=song_infos)
   ```
 
+#### JioSaavnMusicClient
+
+[JioSaavn](https://www.jiosaavn.com/) is an Indian music streaming platform that offers songs, playlists, podcasts, and regional music across multiple Indian languages.
+
+JioSaavnMusicClient provides access to music content available on the previously mentioned platform.
+
+JioSaavnMusicClient works out of the box without requiring external command-line tools such as FFmpeg or N_m3u8DL-RE; installing musicdl is sufficient to start using it.
+
+(1) Command-Line Usage
+
+- Basic usage for song search and download, without login cookies:
+
+  `musicdl -m JioSaavnMusicClient`
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m JioSaavnMusicClient -i "{'JioSaavnMusicClient': {'default_search_cookies': 'YOUR_COOKIES'}}"`
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  `musicdl -p "https://www.jiosaavn.com/featured/o-saathiya/PROeDetW3ZWMQv7FkH9rjg__" -m JioSaavnMusicClient`
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://www.jiosaavn.com/featured/o-saathiya/PROeDetW3ZWMQv7FkH9rjg__" -m JioSaavnMusicClient -i "{'JioSaavnMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
+
+(2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['JioSaavnMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'JioSaavnMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['JioSaavnMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['JioSaavnMusicClient'])
+  song_infos = music_client.parseplaylist("https://www.jiosaavn.com/featured/o-saathiya/PROeDetW3ZWMQv7FkH9rjg__")
+  music_client.download(song_infos=song_infos)
+  ```
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'JioSaavnMusicClient': {
+        'default_parse_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['JioSaavnMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://www.jiosaavn.com/featured/o-saathiya/PROeDetW3ZWMQv7FkH9rjg__")
+  music_client.download(song_infos=song_infos)
+  ```
+
 #### QobuzMusicClient (Built-in Premium Account)
 
 [Qobuz](https://play.qobuz.com/discover) is a high-resolution music streaming and download platform that offers more than 100 million tracks in CD-quality and Hi-Res audio for music listening and discovery.

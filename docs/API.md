@@ -344,6 +344,7 @@ End users usually do not create this class directly. Instead, they use subclasse
 - `musicdl.modules.sources.FMAMusicClient`
 - `musicdl.modules.sources.JamendoMusicClient`
 - `musicdl.modules.sources.JooxMusicClient`
+- `musicdl.modules.sources.JioSaavnMusicClient`
 - `musicdl.modules.sources.KugouMusicClient`
 - `musicdl.modules.sources.KuwoMusicClient`
 - `musicdl.modules.sources.MiguMusicClient`
