@@ -1548,6 +1548,32 @@ YouTubeMusicClient comes with an extra dependency on [Node.js](https://nodejs.or
 
 ## Audio / Radio
 
+#### ITunesMusicClient
+
+[iTunes Podcasts](https://www.apple.com/itunes/) is a digital platform where users can discover, subscribe to, and listen to audio shows across a wide range of topics.
+
+ITunesMusicClient is the go-to tool for downloading audio from the above platform.
+
+With ITunesMusicClient, all you need is pip install musicdl; there are no extra CLI dependencies or complicated configuration steps.
+
+(1) Command-Line Usage
+
+- Search and Download Podcasts from This Platform
+
+  `musicdl -m ITunesMusicClient -i "{'ITunesMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['podcast']}}"`
+
+(2) Invoke It in Python
+
+- Search and Download Podcasts from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'ITunesMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['podcast']}}
+  music_client = musicdl.MusicClient(music_sources=['ITunesMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
 #### LizhiMusicClient
 
 [Lizhi FM](https://www.lizhi.fm/) is a Chinese audio-sharing platform and podcast community built around the idea that "Everyone can be a podcaster."
